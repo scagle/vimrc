@@ -82,7 +82,6 @@ augroup end
 "" VimWiki
 augroup VimWiki
     let g:vimwiki_list = [{'path':'~/.vimwiki/wiki', 'path_html':'~/.vimwiki/html/'}]
-    " TODO: Change this to execute bash script or vim session for projects
     function! VimwikiLinkHandler(link)
         " Use Vim to open external files with the 'vfile:' scheme.  E.g.:
         "   1) [[vfile:~/Code/PythonProject/abc123.py]]
@@ -103,14 +102,6 @@ augroup VimWiki
         endif
     endfunction
 augroup end
-
-" Custom Syntax Colors for certain files
-augroup Colors
-    "TODO: FIX THIS
-    au!
-    au FileType cmake setlocal commentstring=$\ %s
-augroup end
-
 
 " Vim Settings
 syntax on
