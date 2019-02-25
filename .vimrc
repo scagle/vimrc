@@ -131,10 +131,12 @@ nnoremap <silent> <leader>sv :source $MYVIMRC<cr>
 "" Fold Helpers
 nnoremap <silent> <leader>I :set foldmethod=indent<cr>zX<cr>
 nnoremap <silent> <leader>S :set foldmethod=syntax<cr>zX<cr>
-"" Alternate quicker esc
-inoremap jk <esc>
 "" Etc
 nnoremap <silent> <leader>W :set wrap!<cr>
 nnoremap <silent> <leader>cc :set cursorcolumn!<cr> 
 nnoremap <silent> <space> :noh<return><esc>
 nnoremap <silent> <leader>b :ls<CR>:b<Space>
+
+"" Alternate Escape (Can't live without it now)
+""  (Blame this guy not me: http://learnvimscriptthehardway.stevelosh.com/chapters/10.html)
+inoremap jk <esc>
