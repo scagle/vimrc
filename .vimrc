@@ -8,14 +8,26 @@ endif
 " Plug.vim plugin manager
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline' 
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'         
-Plug 'tpope/vim-surround'
-Plug 'godlygeek/tabular'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'vimwiki/vimwiki'
+"" Necessary
+Plug 'scrooloose/nerdtree'            " Navigate files with filetree
+Plug 'godlygeek/tabular'              " Align text in many ways
+Plug 'terryma/vim-multiple-cursors'   " Find/Replace/Manipulate
+Plug 'vimwiki/vimwiki'                " For notetaking/general documenting
+
+"" Aesthetics
+Plug 'vim-airline/vim-airline'        " For sleek airline bar at bottom
+Plug 'vim-airline/vim-airline-themes' " For more themes with airline bar
+Plug 'airblade/vim-gitgutter'         " Use it for viewing what's changed
+
+"" Experimental
+Plug 'tpope/vim-surround'             " Trying to get used to it
+
+"" Super Experimental
+Plug 'junegunn/fzf', {'do': './install --all'}  
+Plug 'junegunn/fzf.vim'  
+Plug 'jremmen/vim-ripgrep'  
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 call plug#end()
 
 let vimDir = '$HOME/.vim'
@@ -42,7 +54,7 @@ endif
 augroup VimAirLine
     set t_Co=256
     let g:airline_theme='papercolor'
-    let g:airline_solarized_bg='dark'
+    " let g:airline_solarized_bg='dark'
     let g:airline_powerline_fonts = 1
 
     if !exists('g:airline_symbols')
@@ -101,6 +113,18 @@ augroup VimWiki
             return 1
         endif
     endfunction
+
+    " mapping to open wiki link in new tab (urxvt doesnt support default map)
+    nmap <Leader>nt <Plug>VimwikiTabnewLink
+augroup end
+
+augroup UltiSnips
+    " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+    " If you want :UltiSnipsEdit to split your window.
+    let g:UltiSnipsEditSplit="vertical"
 augroup end
 
 " Vim Settings
