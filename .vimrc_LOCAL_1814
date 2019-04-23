@@ -92,7 +92,7 @@ augroup end
 augroup NERDTree
     nnoremap <silent> <leader>f :NERDTreeToggle<cr>
     let NERDTreeQuitOnOpen=1
-augroup end
+augroup END
 
 "" VimWiki
 augroup VimWiki
@@ -119,7 +119,7 @@ augroup VimWiki
 
     " mapping to open wiki link in new tab (urxvt doesnt support default map)
     nmap <Leader>nt <Plug>VimwikiTabnewLink
-augroup end
+augroup END
 
 augroup UltiSnips
     " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -130,13 +130,13 @@ augroup UltiSnips
     let g:UltiSnipsEditSplit="tabdo"
     nnoremap <silent><leader>eu :UltiSnipsEdit <cr>
     let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/plugged/my-snippets/UltiSnips"]
-augroup end
+augroup END
 
 augroup FZF
     function! s:buflist()
       redir => ls
       silent ls
-      redir end
+      redir END
       return split(ls, '\n')
     endfunction
 
@@ -150,11 +150,11 @@ augroup FZF
     \   'options': '+m',
     \   'down':    len(<sid>buflist()) + 2
     \ })<CR>
-augroup end
+augroup END
 
 augroup Vimtex
     let g:tex_flavor = 'latex'
-augroup end
+augroup END
 " Use System Clipboard
 set clipboard+=unnamedplus
 " Vim Settings
@@ -171,16 +171,9 @@ set number
 set hlsearch 
 set incsearch 
 set lazyredraw 
-augroup Colorscheme
-    " TODO: Actually make a colorscheme file in which I store all colors
-    colorscheme default
-    highlight Comment ctermfg=Gray
-    " For vimdiff
-    highlight DiffAdd    cterm=bold ctermfg=white ctermbg=blue gui=none guifg=bg guibg=Red
-    highlight DiffDelete cterm=bold ctermfg=white ctermbg=blue gui=none guifg=bg guibg=Red
-    highlight DiffChange cterm=bold ctermfg=white ctermbg=blue gui=none guifg=bg guibg=Red
-    highlight DiffText   cterm=bold ctermfg=white ctermbg=red  gui=none guifg=bg guibg=Red
-augroup end
+" Set Colorscheme
+colorscheme default
+highlight Comment ctermfg=Gray
 
 " Vim mappings:
 "" For saving keystrokes on split windows
@@ -218,5 +211,5 @@ augroup FileSpecficMappings
             \ :exec "normal" . FindPrevPattern('DESC:')<CR>
             \ O<ESC>VggxO<ESC>0Dihead <ESC>:call UltiSnips#ExpandSnippet()<CR><ESC>:w<CR>`m
     autocmd FileType vimwiki nnoremap <silent> <leader>oc :Vimwiki2HTMLBrowse<cr> 
-augroup end
+augroup END
 

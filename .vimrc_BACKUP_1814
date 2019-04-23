@@ -9,16 +9,26 @@ endif
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 "" Necessary
+<<<<<<< HEAD
 Plug 'scrooloose/nerdtree'          " Navigate files with filetree
 Plug 'godlygeek/tabular'            " Align text in many ways
 Plug 'terryma/vim-multiple-cursors' " Find/Replace/Manipulate
 Plug 'vimwiki/vimwiki'              " For notetaking/general documenting
+=======
+Plug 'scrooloose/nerdtree'            " Navigate files with filetree
+Plug 'godlygeek/tabular'              " Align text in many ways
+Plug 'terryma/vim-multiple-cursors'   " Find/Replace/Manipulate
+Plug 'vimwiki/vimwiki'                " For notetaking/general documenting
+>>>>>>> 13e6bae78de9b2242e61afb6b3d6ddc273bdabc5
 
 "" Aesthetics
 Plug 'vim-airline/vim-airline'        " For sleek airline bar at bottom
 Plug 'vim-airline/vim-airline-themes' " For more themes with airline bar
 Plug 'airblade/vim-gitgutter'         " Use it for viewing what's changed
+<<<<<<< HEAD
 Plug 'scagle/vim-tba'                 " My First Real Plugin for tba
+=======
+>>>>>>> 13e6bae78de9b2242e61afb6b3d6ddc273bdabc5
 
 "" Experimental
 Plug 'tpope/vim-surround'             " Trying to get used to it
@@ -27,9 +37,14 @@ Plug 'tpope/vim-surround'             " Trying to get used to it
 Plug 'junegunn/fzf', {'do': './install --all'}  
 Plug 'junegunn/fzf.vim'  
 Plug 'jremmen/vim-ripgrep'  
+<<<<<<< HEAD
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
+=======
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
+>>>>>>> 13e6bae78de9b2242e61afb6b3d6ddc273bdabc5
 call plug#end()
 
 let vimDir = '$HOME/.vim'
@@ -92,7 +107,7 @@ augroup end
 augroup NERDTree
     nnoremap <silent> <leader>f :NERDTreeToggle<cr>
     let NERDTreeQuitOnOpen=1
-augroup end
+augroup END
 
 "" VimWiki
 augroup VimWiki
@@ -116,6 +131,8 @@ augroup VimWiki
             return 1
         endif
     endfunction
+<<<<<<< HEAD
+=======
 
     " mapping to open wiki link in new tab (urxvt doesnt support default map)
     nmap <Leader>nt <Plug>VimwikiTabnewLink
@@ -126,17 +143,31 @@ augroup UltiSnips
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<tab>"
     let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+    " If you want :UltiSnipsEdit to split your window.
+    let g:UltiSnipsEditSplit="vertical"
+augroup end
+>>>>>>> 13e6bae78de9b2242e61afb6b3d6ddc273bdabc5
+
+    " mapping to open wiki link in new tab (urxvt doesnt support default map)
+    nmap <Leader>nt <Plug>VimwikiTabnewLink
+augroup END
+
+augroup UltiSnips
+    " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
     " If you want :UltiSnipsEdit to tab your window.
     let g:UltiSnipsEditSplit="tabdo"
     nnoremap <silent><leader>eu :UltiSnipsEdit <cr>
     let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/plugged/my-snippets/UltiSnips"]
-augroup end
+augroup END
 
 augroup FZF
     function! s:buflist()
       redir => ls
       silent ls
-      redir end
+      redir END
       return split(ls, '\n')
     endfunction
 
@@ -150,11 +181,11 @@ augroup FZF
     \   'options': '+m',
     \   'down':    len(<sid>buflist()) + 2
     \ })<CR>
-augroup end
+augroup END
 
 augroup Vimtex
     let g:tex_flavor = 'latex'
-augroup end
+augroup END
 " Use System Clipboard
 set clipboard+=unnamedplus
 " Vim Settings
@@ -171,16 +202,9 @@ set number
 set hlsearch 
 set incsearch 
 set lazyredraw 
-augroup Colorscheme
-    " TODO: Actually make a colorscheme file in which I store all colors
-    colorscheme default
-    highlight Comment ctermfg=Gray
-    " For vimdiff
-    highlight DiffAdd    cterm=bold ctermfg=white ctermbg=blue gui=none guifg=bg guibg=Red
-    highlight DiffDelete cterm=bold ctermfg=white ctermbg=blue gui=none guifg=bg guibg=Red
-    highlight DiffChange cterm=bold ctermfg=white ctermbg=blue gui=none guifg=bg guibg=Red
-    highlight DiffText   cterm=bold ctermfg=white ctermbg=red  gui=none guifg=bg guibg=Red
-augroup end
+" Set Colorscheme
+colorscheme default
+highlight Comment ctermfg=Gray
 
 " Vim mappings:
 "" For saving keystrokes on split windows
@@ -199,6 +223,7 @@ nnoremap <silent> <leader>S :set foldmethod=syntax<cr>zX<cr>
 "" Etc
 nnoremap <silent> <leader>W :set wrap!<cr>
 nnoremap <silent> <leader>cc :set cursorcolumn!<cr> 
+<<<<<<< HEAD
 noremap <silent> <space> :noh<return><esc>
 nnoremap <leader>sc :setlocal spell! spelllang=en_us <cr>
 "nnoremap <silent> <leader>b :ls<CR>:b<Space>
@@ -218,5 +243,13 @@ augroup FileSpecficMappings
             \ :exec "normal" . FindPrevPattern('DESC:')<CR>
             \ O<ESC>VggxO<ESC>0Dihead <ESC>:call UltiSnips#ExpandSnippet()<CR><ESC>:w<CR>`m
     autocmd FileType vimwiki nnoremap <silent> <leader>oc :Vimwiki2HTMLBrowse<cr> 
-augroup end
+augroup END
 
+=======
+nnoremap <silent> <space> :noh<return><esc>
+nnoremap <silent> <leader>b :ls<CR>:b<Space>
+
+"" Alternate Escape (Can't live without it now)
+""  (Blame this guy not me: http://learnvimscriptthehardway.stevelosh.com/chapters/10.html)
+inoremap jk <esc>
+>>>>>>> 13e6bae78de9b2242e61afb6b3d6ddc273bdabc5
