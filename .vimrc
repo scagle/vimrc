@@ -182,6 +182,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 "" Vimrc customization
+" ACTUALVIMRC environment variable is set in ~/.bashrc as ~/.vimrc
+" Temporary fix for Neovim's MYVIMRC jumping to ~/.config/neovim/init.vim
 nnoremap <silent> <leader>ev :tabnew $ACTUALVIMRC<cr> 
 nnoremap <silent> <leader>sv :source $MYVIMRC<cr>
 "" Fold Helpers
