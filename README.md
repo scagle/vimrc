@@ -1,3 +1,6 @@
+## Note: 
+Super out of date, have been pushing all my dotfiles including my .vimrc into one private repo. Planning to make a private dotfile repo with a public submodule so I can separate sensitive password information from general dotfiles, and so I can start publishing them again!
+
 # vimrc
 My .vimrc file, with plugin manager included
 
